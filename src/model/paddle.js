@@ -26,14 +26,19 @@ class Paddle {
         }
     }
 
+    reset() {
+        this.x = (canvas.width-this.width)/2;
+    }
+
     update() {
         this.draw();
         if(this.cont.rightPressed) {
             this.x += this.step;
         } else if(this.cont.leftPressed) {
             this.x -= this.step;
+        } else if (this.cont.mouseMove) {
+            this.x = this.cont.mouseMove - this.width / 2;
         }
-        this.x = this.cont.mouseMove - this.width / 2;
         this.checkBoundary();
     }
 }

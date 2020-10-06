@@ -41,9 +41,9 @@ class Game {
     }
 
     gameOver(msg) {
-        // alert(msg);
-        // document.location.reload();
-        clearInterval(this.timer); // Needed for Chrome to end game
+        alert(msg);
+        document.location.reload();
+        clearInterval(this.timer); 
         this.score = 0;
     }
 
