@@ -4,7 +4,7 @@ class Paddle {
         this.width = 75;
         this.height = 10;
         this.x = (canvas.width - this.width) / 2;
-        this.y = (canvas.height - this.height) / 2;
+        this.y = canvas.height - this.height;
         this.step = 7;
         this.color = "#0095DD";
     }

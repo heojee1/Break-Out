@@ -6,7 +6,7 @@ class Ball {
         this.dx = 2;
         this.dy = -2;
         this.color = '#0095DD';
-        this.dead = false;
+        this.fall = false;
     }
 
     draw() {
@@ -27,7 +27,7 @@ class Ball {
         if (yLocation < this.radius) {
             this.dy = -this.dy;
         } else if (yLocation > canvas.height - this.radius) {
-            this.dead = true;
+            this.fall = true;
         }
     }
     
