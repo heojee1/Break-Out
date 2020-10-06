@@ -34,7 +34,7 @@ class Game {
     }
 
     checkWinning() {
-        if (this.score == 3) {
+        if (this.score == this.bricks.row * this.bricks.col) {
             console.log(this.score)
             this.gameOver('You Won');
         }
