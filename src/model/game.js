@@ -1,16 +1,13 @@
 class Game {
     constructor() {
-        this.ball = new Ball();
-        this.paddle = new Paddle();
-        this.score = 0;
+        this.ball       = new Ball();
+        this.paddle     = new Paddle();
+        this.bricks     = new Bricks(5, 3);
+        this.score      = 0;
         this.timer;
     }
 
     checkHit() {
-        console.log('ball');
-        console.log(this.ball.x)
-        console.log('paddle')
-        console.log(this.paddle.x, this.paddle.width)
         if(this.ball.x > this.paddle.x 
             && this.ball.x < this.paddle.x + this.paddle.width)
         {
@@ -22,8 +19,8 @@ class Game {
     }
 
     gameOver() {
-        alert("GAME OVER");
-        document.location.reload();
+        // alert("GAME OVER");
+        // document.location.reload();
         clearInterval(this.timer); // Needed for Chrome to end game
         this.score = 0;
     }
@@ -33,6 +30,7 @@ class Game {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             this.ball.update();
             this.paddle.update();
+            this.bricks.draw();
             if (this.ball.fall) {
                 this.checkHit();
             }
