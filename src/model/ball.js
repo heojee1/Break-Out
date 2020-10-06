@@ -6,6 +6,7 @@ class Ball {
         this.dx = 2;
         this.dy = -2;
         this.color = '#0095DD';
+        this.dead = false;
     }
 
     draw() {
@@ -19,18 +20,20 @@ class Ball {
     checkBoundary() {
         let xLocation = this.x + this.dx;
         let yLocation = this.y + this.dy;
+
         if (xLocation < this.radius || xLocation > canvas.width - this.radius) {
             this.dx = -this.dx;
         }
-
-        if (yLocation < this.radius || yLocation > canvas.height - this.radius) {
+        if (yLocation < this.radius) {
             this.dy = -this.dy;
+        } else if (yLocation > canvas.height - this.radius) {
+            this.dead = true;
         }
     }
     
     update() {
-        this.checkBoundary();
         this.draw();
+        this.checkBoundary();
         this.x += this.dx;
         this.y += this.dy;
     }
