@@ -2,6 +2,7 @@ class Controller {
     constructor() {
         this.leftPressed = false;
         this.rightPressed = false;
+        this.mouseMove = 0;
         this.setup();
     }
 
@@ -23,11 +24,22 @@ class Controller {
         }
     }
 
+    mouseMoveHandler(e) {
+        this.mouseMove = 0;
+        var relativeX = e.clientX - canvas.offsetLeft;
+        if(relativeX > 0 && relativeX < canvas.width) {
+            this.mouseMove = relativeX;
+        }
+        return this.mouseMove;
+    }
+
     setup() {
         this.boundKeyDownHandler = e => this.keyDownHandler(e);
         this.boundKeyUpHandler = e => this.keyUpHandler(e);
+        this.boundmouseMoveHandler = e =>  this.mouseMoveHandler(e);
         document.addEventListener("keydown", this.boundKeyDownHandler, false);
         document.addEventListener("keyup", this.boundKeyUpHandler, false);
+        document.addEventListener("mousemove", this.boundmouseMoveHandler, false);
     }
 }
 

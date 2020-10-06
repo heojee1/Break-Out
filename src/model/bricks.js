@@ -20,16 +20,12 @@ class Bricks {
         }
     }
 
-    draw() {
+    update() {
         for (let i = 0; i < this.col; i++) {
             for (let j = 0; j < this.row; j++) {
                 this.bricks[i][j].draw();
             }
         }
-    }
-
-    update() {
-
     }
 }
 

@@ -30,6 +30,24 @@ class Ball {
             this.fall = true;
         }
     }
+
+    detectCollision(bricks) {
+        let points = 0;
+        for (let i = 0; i < bricks.col; i++) {
+            for (let j = 0; j < bricks.row; j++) {
+                let b = bricks.bricks[i][j];
+                if (!b.destroyed 
+                    && this.x > b.x && this.x < b.x + b.width
+                    && this.y > b.y && this.y < b.y + b.height)
+                {
+                    b.destroyed = true;
+                    points++;
+                    this.dy = -this.dy;
+                }
+            }
+        }
+        return points;
+    }
     
     update() {
         this.draw();

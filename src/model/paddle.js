@@ -33,6 +33,7 @@ class Paddle {
         } else if(this.cont.leftPressed) {
             this.x -= this.step;
         }
+        this.x = this.cont.mouseMove - this.width / 2;
         this.checkBoundary();
     }
 }
