@@ -1,5 +1,5 @@
----
-permalink: /index.html
----
+# Break Out Game Clone
 
-# Break Out
+This is a simple clone of the famous Break Out game.
+
+Click <a href='/index.htm'>here</a> to play the game.
